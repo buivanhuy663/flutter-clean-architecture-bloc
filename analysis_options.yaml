@@ -29,9 +29,6 @@ analyzer:
     lines_longer_than_80_chars: error
     prefer_single_quotes: error
 
-  strong-mode:
-    implicit-casts: true # default
-    implicit-dynamic: true # default
 
 linter:
   rules:
