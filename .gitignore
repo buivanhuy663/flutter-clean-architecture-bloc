@@ -45,4 +45,4 @@ app.*.map.json
 
 
 # Flutter version management
-.fvm/flutter_sdk
+.fvm

@@ -1,0 +1,53 @@
+{
+  "splashScreen": "Splash Screen",
+  "login": "Login",
+  "logout": "Logout",
+  "loginFail": "Login Fail",
+  "check": "CHECK",
+  "unCheck": "UNCHECK",
+  "delete": "DELETE",
+  "description": "Description",
+  "enterDescription": "Enter a description",
+  "addNewToDo": "ADD A NEW TO-DO",
+  "addTodo": "Add To-Do",
+  "email": "Email",
+  "enterEmail": "Enter a email",
+  "emailRequired": "The email is required",
+  "emailInvalid": "The email is invalid",
+  "password": "Password",
+  "enterPassword": "Enter a password",
+  "passwordRequired": "The password is required",
+  "passwordInvalid": "The password is invalid",
+  "register": "Register",
+  "name": "Name",
+  "enterName": "Enter a name",
+  "age": "Age",
+  "enterAge": "Enter a age",
+  "message": "Message",
+  "doYouWantToDoIt": "Do you want to do it?",
+  "todos": "Todos",
+  "profile": "Profile",
+  "hi": "Hi",
+  "closeButton": "Close",
+  "okButton": "Ok",
+  "okButtonUppercase": "OK",
+  "cancelButtonUppercase": "CANCEL",
+  "noInternetConnection": "No internet connection",
+  "connectingTimeOut": "Connecting time out",
+  "hello": "hello {name}, {age} old",
+  "@hello": {
+    "description": "Hello a people with name and age",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "age": {
+        "type": "int"
+      }
+    }
+  },
+  "unknownError": "Unknown Error",
+  "connectionClosed": "Connection closed while receiving data",
+  "badFileDescriptor": "Bad file descriptor",
+  "getRefreshTokenFail": "Get Refresh Token Fail"
+}
