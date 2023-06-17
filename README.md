@@ -86,3 +86,10 @@ A newly created page will include the following files and directory structure
 |      🎯 ...
 |  🎯 <$NAME>_page.dart
 ```
+
+Use the script to automatically create a new page.
+
+1. Ctrl + Shift + P
+2. Enter "Tasks: Run Task"
+3. Create New Page
+4. Enter directory and page name is done

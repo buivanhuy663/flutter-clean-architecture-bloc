@@ -1,0 +1,34 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Create New Page",
+            "type": "shell",
+            "command": "chmod +x ${cwd}/.template/create_new_page.sh;      ${cwd}/.template/create_new_page.sh ${input:dir} ${input:page_name};        code -r ${workspaceFolder}/${input:dir}/${input:page_name}/${input:page_name}_page.dart",
+            "group": "test",
+            "isBackground": true,
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "id": "page_name",
+            "description": "Page Name: snake_came",
+            "default": "snake_came",
+            "type": "promptString"
+        },
+        {
+            "id": "dir",
+            "description": "Directory: lib/presentation/feature",
+            "default": "lib/presentation/feature",
+            "type": "promptString"
+        }
+    ],
+}
