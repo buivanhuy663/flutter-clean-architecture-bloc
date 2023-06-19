@@ -39,6 +39,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const UnknownPage(),
       );
     },
+    TodosRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const TodosPage(),
+      );
+    },
   };
 }
 
@@ -94,6 +100,20 @@ class UnknownRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'UnknownRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [TodosPage]
+class TodosRoute extends PageRouteInfo<void> {
+  const TodosRoute({List<PageRouteInfo>? children})
+      : super(
+          TodosRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'TodosRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

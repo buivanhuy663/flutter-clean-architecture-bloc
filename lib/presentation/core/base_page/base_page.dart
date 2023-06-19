@@ -7,6 +7,7 @@ import '../../../utilities/helpers/error_helper/error_helper.dart';
 import '../../components/dialog/dialog_platform.dart';
 import '../../components/loading_wrapper/bloc/loading_wrapper_presenter.dart';
 import '../../components/loading_wrapper/loading_wrapper.dart';
+import '../../components/visibility_wrapper.dart';
 import '../../resources/resources.dart';
 import '../refresh_service/refresh_service.dart';
 
@@ -78,17 +79,27 @@ abstract class BasePageState<Page extends BasePage,
         ),
       );
 
-  Widget _bodyInsideSafeArea() => GestureDetector(
-        onTap: tapOutsideHideKeyBoard
-            ? () {
-                FocusScope.of(context).requestFocus(FocusNode());
-              }
-            : null,
-        child: Scaffold(
-          backgroundColor: backgroundColor ?? AppColors.value.background,
-          resizeToAvoidBottomInset: resizeToAvoidBottomInset,
-          appBar: buildAppBar(context),
-          body: buildBody(context),
+  Widget _bodyInsideSafeArea() => VisibilityWrapper(
+        onAppeared: () {
+          onAppearedPage();
+          if (RefreshService.hadRefresh(pageName)) {
+            RefreshService.removePage(pageName);
+            onRefreshPage();
+          }
+        },
+        onDisappeared: onDisappearedPage,
+        child: GestureDetector(
+          onTap: tapOutsideHideKeyBoard
+              ? () {
+                  FocusScope.of(context).requestFocus(FocusNode());
+                }
+              : null,
+          child: Scaffold(
+            backgroundColor: backgroundColor ?? AppColors.value.background,
+            resizeToAvoidBottomInset: resizeToAvoidBottomInset,
+            appBar: buildAppBar(context),
+            body: buildBody(context),
+          ),
         ),
       );
 

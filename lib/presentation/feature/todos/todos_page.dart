@@ -1,11 +1,21 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import './bloc/todos_presenter.dart';
-import './components/todos_list_compoment.dart';
-import '../../../utilities/extensions/extensions.dart';
 import '../../core/base_page/base_page.dart';
-import '../../resources/resources.dart';
+import 'bloc/todos_module.dart';
+import 'bloc/todos_presenter.dart';
+import 'bloc/todos_state.dart';
+import 'components/example_component.dart';
 
+/// Created by:  buivanhuy663
+/// Created at:  2023-06-19
+/// Page:        [TodosPage]
+/// Module:      [TodosModule]
+/// Presenter:   [TodosPresenter]
+/// State:       [TodosState]
+/// Description:
+/// TODO: This is [TodosPage]
+@RoutePage()
 class TodosPage extends BasePage {
   const TodosPage({Key? key}) : super(key: key);
 
@@ -15,49 +25,33 @@ class TodosPage extends BasePage {
 
 class _TodosPageState extends BasePageState<TodosPage, TodosPresenter> {
   @override
-  void onStateCreated(BuildContext context) {
-    super.onStateCreated(context);
-    _initDataPage();
-  }
-
-  @override
-  void onRefreshPage() {
-    super.onRefreshPage();
-    _initDataPage();
-  }
-
-  @override
   PreferredSizeWidget? buildAppBar(BuildContext context) => AppBar(
-        backgroundColor: AppColors.value.background,
-        title: Text(
-          AppText.value.todos,
-          style: AppTextStyles.s14w300,
-        ),
+        //TODO: (remove) App bar of new page
+        title: const Text('TodosPage'),
         centerTitle: true,
-        actions: [
-          IconButton(
-            onPressed: _onPressLogout,
-            icon: Icon(
-              Icons.logout,
-              color: AppColors.value.blueMain,
-            ),
-          )
-        ],
       );
 
   @override
-  Widget buildBody(BuildContext context) => TodosList(
+  Widget buildBody(BuildContext context) => ExampleComponent(
         presenter: presenter,
+        //TODO: (remove) presenter will automatically be initialized
+        //after initState() is called. No need to initialize this value
       );
+
+  @override
+  void handlerFutureError(Object? error) {
+    //TODO: (remove) Example of an overridden method
+  }
 
   @override
   bool get resizeToAvoidBottomInset => true;
 }
 
+///==========================================================================///
+///=> Behavior of the [TodosPage]
+///==========================================================================///
 extension _TodosPageBehavior on _TodosPageState {
-  void _initDataPage() {
-    presenter.initData().subscribeLoadingFullScreen(this);
+  void _onPressButton() {
+    //TODO: (remove) Example of a self-defined method
   }
-
-  void _onPressLogout() {}
 }

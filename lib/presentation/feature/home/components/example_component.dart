@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../bloc/profile_presenter.dart';
-import '../bloc/profile_state.dart';
+import '../bloc/home_presenter.dart';
+import '../bloc/home_state.dart';
 
 class ExampleComponent extends StatelessWidget {
   const ExampleComponent({
@@ -10,12 +10,12 @@ class ExampleComponent extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final ProfilePresenter presenter;
+  final HomePresenter presenter;
 
   @override
   Widget build(BuildContext context) =>
-      BlocBuilder<ProfilePresenter, 
-      ProfileState>(
+      BlocBuilder<HomePresenter, 
+      HomeState>(
         bloc: presenter,
         buildWhen: (previous, current) => false,
         builder: (context, state) => Container(

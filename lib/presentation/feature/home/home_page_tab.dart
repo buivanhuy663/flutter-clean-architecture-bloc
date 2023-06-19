@@ -1,4 +1,0 @@
-enum HomePageTab {
-  todos,
-  profile,
-}

@@ -1,45 +1,61 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import './bloc/home_page_presenter.dart';
-import './components/bottom_navigation.dart';
 import '../../core/base_page/base_page.dart';
-import '../../routes/app_router.dart';
+import 'bloc/home_module.dart';
+import 'bloc/home_presenter.dart';
+import 'bloc/home_state.dart';
+import 'components/example_component.dart';
 
+/// Created by:  buivanhuy663
+/// Created at:  2023-06-19
+/// Page:        [HomePage]
+/// Module:      [HomeModule]
+/// Presenter:   [HomePresenter]
+/// State:       [HomeState]
+/// Description:
+/// TODO: This is [HomePage]
 @RoutePage()
 class HomePage extends BasePage {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomePage> createState() => 
+  _HomePageState();
 }
 
-class _HomePageState extends BasePageState<HomePage, HomePagePresenter> {
+class _HomePageState
+    extends BasePageState<HomePage, 
+    HomePresenter> {
   @override
-  void onInitState() {
-    super.onInitState();
-    _addListenerChangeNavigationBottom();
+  PreferredSizeWidget? buildAppBar(BuildContext context) => AppBar(
+        //TODO: (remove) App bar of new page
+        title: const Text('HomePage'),
+        centerTitle: true,
+      );
+
+  @override
+  Widget buildBody(BuildContext context) => ExampleComponent(
+        presenter: presenter,
+        //TODO: (remove) presenter will automatically be initialized
+        //after initState() is called. No need to initialize this value
+      );
+
+  @override
+  void handlerFutureError(Object? error) {
+    //TODO: (remove) Example of an overridden method
   }
 
   @override
-  Widget buildBody(BuildContext context) => AutoTabsScaffold(
-        animationDuration: Duration.zero,
-        routes: const [
-          ProfileRoute(),
-          ProfileRoute(),
-        ],
-        homeIndex: 0,
-        bottomNavigationBuilder: (_, tabsRouter) => BottomNavigation(
-          presenter: presenter,
-          tabsRouter: tabsRouter,
-        ),
-      );
+  bool get resizeToAvoidBottomInset => true;
 }
 
-extension _HomePageBehavior on _HomePageState {
-  void _addListenerChangeNavigationBottom() {
-    context.router.addListener(
-      () => presenter.handleShowNavigatorBottom(context.router),
-    );
+///==========================================================================///
+///=> Behavior of the [HomePage]
+///==========================================================================///
+extension _HomePageBehavior on 
+_HomePageState {
+  void _onPressButton() {
+    //TODO: (remove) Example of a self-defined method
   }
 }

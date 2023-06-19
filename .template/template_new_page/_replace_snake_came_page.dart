@@ -6,7 +6,8 @@ import 'bloc/_replace_snake_came_presenter.dart';
 import 'bloc/_replace_snake_came_state.dart';
 import 'components/example_component.dart';
 
-/// Create at:   ${formattedDate}
+/// Created by:  {autho}
+/// Created at:  {DateNow}
 /// Page:        [ReplacePascalCamePage]
 /// Module:      [ReplacePascalCameModule]
 /// Presenter:   [ReplacePascalCamePresenter]
